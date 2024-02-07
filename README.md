@@ -21,7 +21,7 @@ You'll also find placeholders for the date and day of your special invitation. T
 After making your changes, save the file. Go to 'File' on your text editor and click 'Save'.
 
 ### Step 6: Preview Your Invitation
-To see how your invitation looks, find the `index.html` file in your folder. Double-click on it, and it should open in your web browser.
+To see how your invitation looks, install the "Live Server" extension on your IDE, then right click the `index.html` file and click "Open with Live Server"
 
 ### Step 7: Host Your Invitation
 For your significant other to see this invitation, you'll need to host it online. You can use free hosting services like GitHub Pages: here is a tutorial on how to do so - https://pages.github.com/
