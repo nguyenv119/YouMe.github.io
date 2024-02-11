@@ -56,6 +56,7 @@ body
     border-radius: 100%;
 }
 
+
 .buttons button {
     background-color: #ff4d79;
     color: #fff;
@@ -96,4 +97,34 @@ body
     50% { transform: translate(-20px, -20px); }
     75% { transform: translate(10px, 10px); }
     100% { transform: translate(0, 0); }
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        font-size: 20px; /* Smaller font size for mobile */
+    }
+
+    .buttons button {
+        padding: 8px 20px; /* Smaller padding for buttons */
+        font-size: 18px; /* Smaller font size for buttons */
+    }
+
+    .pp {
+        font-size: 30px; /* Smaller font size for the main prompt */
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 900px) {
+    body {
+        font-size: 25px; /* Adjust font size for tablets */
+    }
+
+    .buttons button {
+        padding: 10px 25px; /* Adjust button padding */
+        font-size: 22px; /* Adjust button font size */
+    }
+
+    .pp {
+        font-size: 40px; /* Adjust main prompt font size */
+    }
 }
