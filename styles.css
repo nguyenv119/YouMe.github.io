@@ -1,6 +1,6 @@
 body {
     font-family: 'arial', cursive; /* Use a romantic cursive font */
-    background-color: #ffeaed;
+    background-color: #fff0f2;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -59,16 +59,23 @@ body
 
 .buttons button {
     background-color: #ff4d79;
-    color: #fff;
+    color: black;
     padding: 10px 30px;
-    border: none;
-    border-radius: 30px;
+    border-radius: 10px;
     margin: 10px;
     font-size: 26px;
     cursor: pointer;
     position: relative;
-    font-family: 'arial', cursive; /* Change to a romantic cursive font */
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 
+}
+
+#yesButton {
+    background-color: rgb(0, 255, 0);
+}
+
+#no-button {
+    background-color: rgb(255, 68, 68);
 }
 
 .buttons button:hover {
