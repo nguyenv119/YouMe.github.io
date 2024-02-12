@@ -34,8 +34,6 @@ function handleNoClick() {
   updateUI();
 
   document.getElementById("question").textContent = phrases[Math.min(noCount, phrases.length - 1)];
-  // document.getElementById("question").textContent = 
-  // "Wait wat ;-;";
   document.getElementById("name").style.display = "none";
 }
 
@@ -68,42 +66,43 @@ function updateUI() {
     } else {
         // Update for No response
         yesButton.style.fontSize = (noCount * 20 + 15) + 'px';
-        // noButton.textContent = phrases[Math.min(noCount, phrases.length - 1)];
+        image.src = 'images/gun.gif';
     }
 }
+
 document.getElementById('codeSubmitButton').addEventListener('click', function() {
-  var secretCode = 'HulaHoops'; // Your secret code
   var userInput = document.getElementById('secretCodeInput').value;
-  
-  if(userInput === secretCode) {
-      hideAllExceptSecretMessage();
-  } else {
-      alert('Wrong code, try again!');
-  }
+
+  fetch('info.txt')
+      .then(response => response.text())
+      .then(text => {
+          var lines = text.split('\n');
+          var codes = lines[0];
+          console.log(codes);
+          console.log(userInput)
+          if (codes == userInput) {
+              displaySecretMessage(lines[1]);
+          } else {
+              alert('Wrong code, try again!');
+          }
+      })
+      .catch(error => {
+          console.error('Error reading the info.txt file:', error);
+      });
 });
 
-function hideAllExceptSecretMessage() {
-  // Hide the main container
-  
-  // Display only the secret message
-  document.getElementById('secret-message').style.display = 'block';
-  document.querySelector('.container').style.display = 'hidden';
-
-  // Optionally, adjust the style of the secret message or body if needed
-  document.getElementById('secret-message').style.textAlign = 'center'; // Example: center align the text
-}
-
-function hideAllExceptSecretMessage() {
+function displaySecretMessage(secretMessage) {
   // Hide elements inside the container, but not the container itself
   var elementsToHide = document.querySelectorAll('.Mainprompt > *:not(#secret-message)');
-  
+
   // Loop through and hide each element
   elementsToHide.forEach(function(element) {
       element.style.display = 'none';
   });
 
   // Display only the secret message
-  document.getElementById('secret-message').style.display = 'block';
-  document.getElementById('secret-message').style.textAlign = 'center'; // Center align the text
+  var secretDiv = document.getElementById('secret-message');
+  secretDiv.textContent = secretMessage; // Dynamically add the secret message
+  secretDiv.style.display = 'block';
+  secretDiv.style.textAlign = 'center'; // Center align the text
 }
-
