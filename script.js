@@ -70,26 +70,42 @@ function updateUI() {
     }
 }
 
+function shiftChar(char, shift) {
+  return String.fromCharCode(((char.charCodeAt(0) - 32 + shift) % 95) + 32);
+}
+
+function encodeString(str, shift) {
+  return str.split('').map(char => shiftChar(char, shift)).join('');
+}
+
+function decodeString(str, shift) {
+  return str.split('').map(char => shiftChar(char, -shift)).join('');
+}
+
 document.getElementById('codeSubmitButton').addEventListener('click', function() {
   var userInput = document.getElementById('secretCodeInput').value;
+  var encryptedUserInput = encodeString(userInput, 3); // Adjust shift value as needed
 
   fetch('info.txt')
       .then(response => response.text())
       .then(text => {
           var lines = text.split('\n');
-          var codes = lines[0];
-          console.log(codes);
-          console.log(userInput)
-          if (codes == userInput) {
-              displaySecretMessage(lines[1]);
+          var encryptedPassword = lines[0];
+          var encryptedMessage = lines[1];
+
+          if (encryptedPassword == encryptedUserInput) {
+              var decryptedMessage = decodeString(encryptedMessage, 3); // Adjust shift value as needed
+              displaySecretMessage(decryptedMessage);
           } else {
-              alert('Wrong code, try again!');
+              alert('you are NOTTTT her!');
           }
       })
       .catch(error => {
           console.error('Error reading the info.txt file:', error);
       });
 });
+
+
 
 function displaySecretMessage(secretMessage) {
   // Hide elements inside the container, but not the container itself
