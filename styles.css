@@ -142,3 +142,13 @@ body
     font-style: oblique;
     font-weight: 800;
 }
+
+.hidden-audio {
+    text-align: center;
+    margin-top: 20px;
+}
+
+audio {
+    width: 100%;
+    max-width: 30%; 
+}

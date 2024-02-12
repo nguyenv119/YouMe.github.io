@@ -97,7 +97,7 @@ document.getElementById('codeSubmitButton').addEventListener('click', function()
               var decryptedMessage = decodeString(encryptedMessage, 3); // Adjust shift value as needed
               displaySecretMessage(decryptedMessage);
           } else {
-              alert('you are NOTTTT her!');
+              alert('you are NOTTTT HER!');
           }
       })
       .catch(error => {
@@ -109,7 +109,7 @@ document.getElementById('codeSubmitButton').addEventListener('click', function()
 
 function displaySecretMessage(secretMessage) {
   // Hide elements inside the container, but not the container itself
-  var elementsToHide = document.querySelectorAll('.Mainprompt > *:not(#secret-message)');
+  var elementsToHide = document.querySelectorAll('.Mainprompt > *:not(#secret-message):not(#youtube-player)');
 
   // Loop through and hide each element
   elementsToHide.forEach(function(element) {
@@ -118,7 +118,15 @@ function displaySecretMessage(secretMessage) {
 
   // Display only the secret message
   var secretDiv = document.getElementById('secret-message');
-  secretDiv.textContent = secretMessage; // Dynamically add the secret message
+  secretDiv.textContent = secretMessage;
   secretDiv.style.display = 'block';
-  secretDiv.style.textAlign = 'center'; // Center align the text
+  secretDiv.style.textAlign = 'center';
+
+  // Show the audio player
+  var audioPlayer = document.getElementById('audio-player');
+  audioPlayer.style.display = 'block';
+
+  // Optionally start the audio playback
+  var mp3Audio = document.getElementById('mp3Audio');
+  mp3Audio.play();
 }

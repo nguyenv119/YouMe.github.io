@@ -29,9 +29,17 @@
                     <input type="text" id="secretCodeInput" placeholder="Enter Secret Code">
                     <button id="codeSubmitButton">Are you Her?</button>
                 </div>
+                <!-- Separate the IDs for the secret message and YouTube player -->
                 <div class="hidden-message" id="secret-message">
-                    <!-- lol you can't see this -->
+                    <!-- Secret message text will be added here -->
                 </div>
+                <div class="hidden-audio" id="audio-player" style="display: none;">
+                    <audio id="mp3Audio" controls>
+                        <source src="idku.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                
             </div>
         </div>
         <script src="script.js"></script>
