@@ -1,6 +1,6 @@
 body {
     font-family: 'arial', cursive; /* Use a romantic cursive font */
-    background-color: #fff0f2;
+    background-color: #fff5f5;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -91,7 +91,7 @@ body
 
 .hidden-message {
     display: none;
-    margin-top: 20px;
+    /* margin-top: 20px; */
 }
 
 .move {
