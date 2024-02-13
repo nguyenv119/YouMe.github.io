@@ -1,6 +1,6 @@
 body {
     font-family: 'arial', cursive; /* Use a romantic cursive font */
-    background-color: #fff5f5;
+    background-color: rgb(255, 242, 242);
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -89,11 +89,6 @@ body
     flex-direction: row;
 }
 
-.hidden-message {
-    display: none;
-    /* margin-top: 20px; */
-}
-
 .move {
     animation: moveNoMessage 0.5s linear;
 }
@@ -106,41 +101,12 @@ body
     100% { transform: translate(0, 0); }
 }
 
-@media only screen and (max-width: 600px) {
-    body {
-        font-size: 20px; /* Smaller font size for mobile */
-    }
-
-    .buttons button {
-        padding: 8px 20px; /* Smaller padding for buttons */
-        font-size: 18px; /* Smaller font size for buttons */
-    }
-
-    .pp {
-        font-size: 30px; /* Smaller font size for the main prompt */
-    }
-}
-
-@media only screen and (min-width: 600px) and (max-width: 900px) {
-    body {
-        font-size: 25px; /* Adjust font size for tablets */
-    }
-
-    .buttons button {
-        padding: 10px 25px; /* Adjust button padding */
-        font-size: 22px; /* Adjust button font size */
-    }
-
-    .pp {
-        font-size: 40px; /* Adjust main prompt font size */
-    }
-}
-
 .hidden-message {
-    -webkit-text-stroke: 2px #71004f;
-    font-size: 50px;
+    -webkit-text-stroke: 0.25px #71004f;
+    font-size: 20px;
     font-style: oblique;
     font-weight: 800;
+    margin: 5%;
 }
 
 .hidden-audio {
@@ -149,6 +115,57 @@ body
 }
 
 audio {
-    width: 100%;
-    max-width: 30%; 
+    max-width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        font-size: 20px; /* Adjust font size for body */
+    }
+
+    .buttons button {
+        padding: 5px 15px; /* Adjust padding for buttons */
+        font-size: 14px; /* Adjust font size for buttons */
+    }
+
+    .pp {
+        font-size: 24px; /* Adjust main prompt font size */
+        -webkit-text-stroke: 1px #71004f;
+    }
+
+    .hh {
+        font-size: 28px; /* Adjust font size for header */
+        -webkit-text-stroke: 1px #71004f;
+    }
+
+    .hidden-message {
+        font-size: 14px; /* Adjust font size for hidden messages */
+        -webkit-text-stroke: 0.25px #71004f;
+        margin: 5%;
+    }
+
+}
+
+
+@media only screen and (min-width: 600px) and (max-width: 900px) {
+    body {
+        font-size: 34px; /* Adjust font size for tablets */
+    }
+
+    .buttons button {
+        padding: 8px 20px; /* Adjust button padding */
+        font-size: 18px; /* Adjust button font size */
+    }
+
+    .pp {
+        font-size: 30px; /* Adjust main prompt font size */
+    }
+
+    .hh {
+        font-size: 25px; /* Adjust font size for headings and hidden messages */
+    }
+
+    .hidden-message {
+        font-size: 10px;
+    }
 }
