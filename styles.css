@@ -121,7 +121,7 @@ audio {
 
 @media only screen and (max-width: 600px) {
     body {
-        font-size: 20px; /* Adjust font size for body */
+        font-size: 15px; /* Adjust font size for body */
     }
 
     .buttons button {
@@ -140,7 +140,7 @@ audio {
     }
 
     .hidden-message {
-        font-size: 14px; /* Adjust font size for hidden messages */
+        font-size: 12px; /* Adjust font size for hidden messages */
         -webkit-text-stroke: 0.25px #71004f;
         margin: 5%;
     }
