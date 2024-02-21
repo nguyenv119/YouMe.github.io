@@ -86,7 +86,7 @@ document.getElementById('codeSubmitButton').addEventListener('click', function()
   var userInput = document.getElementById('secretCodeInput').value;
   var encryptedUserInput = encodeString(userInput, 3); // Adjust shift value as needed
 
-  fetch('info.txt')
+  fetch('v2.txt')
       .then(response => response.text())
       .then(text => {
           var lines = text.split('\n');
