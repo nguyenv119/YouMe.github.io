@@ -84,9 +84,10 @@ function decodeString(str, shift) {
 
 document.getElementById('codeSubmitButton').addEventListener('click', function() {
   var userInput = document.getElementById('secretCodeInput').value;
-  var encryptedUserInput = encodeString(userInput, 3); // Adjust shift value as needed
+  var encryptedUserInput = userInput; // Adjust shift value as needed
+//   var encryptedUserInput = encodeString(userInput, 3); // Adjust shift value as needed
 
-  fetch('v2.txt')
+  fetch('v3.txt')
       .then(response => response.text())
       .then(text => {
           var lines = text.split('\n');
@@ -94,7 +95,8 @@ document.getElementById('codeSubmitButton').addEventListener('click', function()
           var encryptedMessage = lines[1];
 
           if (encryptedPassword == encryptedUserInput) {
-              var decryptedMessage = decodeString(encryptedMessage, 3); // Adjust shift value as needed
+            //   var decryptedMessage = decodeString(encryptedMessage, 3); // Adjust shift value as needed
+              var decryptedMessage = encryptedMessage;
               displaySecretMessage(decryptedMessage);
           } else {
               alert('you are NOTTTT HER!');
