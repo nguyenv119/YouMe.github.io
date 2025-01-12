@@ -5,7 +5,6 @@ const phrases = [
     "No :(", "Are you sure?", "Really? :(", "I will be really sad", "I'm going to cry", "Please ;-;", "Don't do this!!!", "AAAAHHHHHHHSUHH", "You are going to break my heart", "NKDNKNSDKNSKDNKSDNKWQND"
 ];
 
-// Initialize
 document.addEventListener('DOMContentLoaded', function() {
     setupEventListeners();
 });
@@ -58,13 +57,13 @@ function updateUI() {
     const image = document.getElementsByClassName('image')[0];
 
     if (yesPressed) {
-        // Update for Yes response
+        /** Update for Yes response **/
         question.textContent = 'YEAAAYYYYYY😘😘';
         image.src = 'images/200w.gif';
         yesButton.style.display = 'none';
         noButton.style.display = 'none';
     } else {
-        // Update for No response
+        /** Update for No response **/
         yesButton.style.fontSize = (noCount * 20 + 15) + 'px';
         image.src = 'images/gun.gif';
     }
@@ -84,20 +83,19 @@ function decodeString(str, shift) {
 
 document.getElementById('codeSubmitButton').addEventListener('click', function() {
   var userInput = document.getElementById('secretCodeInput').value;
-  var encryptedUserInput = userInput; // Adjust shift value as needed
-//   var encryptedUserInput = encodeString(userInput, 3); // Adjust shift value as needed
+  var encryptedUserInput = userInput;
 
-  fetch('v3.txt')
+  fetch('v4.txt')
       .then(response => response.text())
       .then(text => {
           var lines = text.split('\n');
           var encryptedPassword = lines[0];
-          var encryptedMessage = lines[1];
+          var originalText = lines[1];
 
           if (encryptedPassword == encryptedUserInput) {
-            //   var decryptedMessage = decodeString(encryptedMessage, 3); // Adjust shift value as needed
-              var decryptedMessage = encryptedMessage;
-              displaySecretMessage(decryptedMessage);
+              var formattedText = originalText.replace(/\n/g, '\n  ');
+
+              displaySecretMessage(formattedText);
           } else {
               alert('you are NOTTTT HER!');
           }
@@ -108,27 +106,27 @@ document.getElementById('codeSubmitButton').addEventListener('click', function()
 });
 
 
-
 function displaySecretMessage(secretMessage) {
-  // Hide elements inside the container, but not the container itself
+  /** Hide elements inside the container, but not the container itself **/
   var elementsToHide = document.querySelectorAll('.Mainprompt > *:not(#secret-message):not(#youtube-player)');
 
-  // Loop through and hide each element
+  /** Loop through and hide each element **/
   elementsToHide.forEach(function(element) {
       element.style.display = 'none';
   });
 
-  // Display only the secret message
+  /** Format and display the secret message **/
+  var formattedMessage = secretMessage.replace(/\n/g, '<br><br>'); // Add double line breaks for paragraphs
   var secretDiv = document.getElementById('secret-message');
-  secretDiv.textContent = secretMessage;
+  secretDiv.innerHTML = formattedMessage; // Use innerHTML to allow paragraph breaks
   secretDiv.style.display = 'block';
   secretDiv.style.textAlign = 'center';
 
-  // Show the audio player
+  /** Show the audio player **/
   var audioPlayer = document.getElementById('audio-player');
   audioPlayer.style.display = 'block';
 
-  // Optionally start the audio playback
+  /** Optionally start the audio playback **/
   var mp3Audio = document.getElementById('mp3Audio');
   mp3Audio.play();
 }
