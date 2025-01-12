@@ -83,19 +83,17 @@ function decodeString(str, shift) {
 
 document.getElementById('codeSubmitButton').addEventListener('click', function() {
   var userInput = document.getElementById('secretCodeInput').value;
-  var encryptedUserInput = userInput;
 
   fetch('v4.txt')
       .then(response => response.text())
       .then(text => {
           var lines = text.split('\n');
-          var encryptedPassword = lines[0];
+          var password = lines[0];
           var originalText = lines[1];
-
-          if (encryptedPassword == encryptedUserInput) {
-              var formattedText = originalText.replace(/\n/g, '\n  ');
-
-              displaySecretMessage(formattedText);
+        
+          console.log(password, userInput)
+          if (password == userInput) {
+              displaySecretMessage(originalText);
           } else {
               alert('you are NOTTTT HER!');
           }
