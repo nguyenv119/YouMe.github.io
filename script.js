@@ -84,7 +84,7 @@ function decodeString(str, shift) {
 document.getElementById('codeSubmitButton').addEventListener('click', function() {
   var userInput = document.getElementById('secretCodeInput').value;
 
-  fetch('v4.txt')
+  fetch('./text/v5.txt')
       .then(response => response.text())
       .then(text => {
           var lines = text.split('\n');
